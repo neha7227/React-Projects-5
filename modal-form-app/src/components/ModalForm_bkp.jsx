@@ -1,25 +1,12 @@
 import React, { useState } from "react";
 import "../components/ModalForm.css";
-function ModalForm() {
+function ModalForm_bkp() {
   const [phone, setPhone] = useState("");
   const [username, SetUsername] = useState("");
   const [email, SetEmail] = useState("");
   const [dob, SetDob] = useState("");
   const [modalState, setModalState] = useState(false);
-  const [formData, setFormData] = useState({
-    phone: "",
-    username: "",
-    email: "",
-    dob: "",
-  });
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
   const openModal = () => {
     // if (!modalState) setModalState(true);
     setModalState(true);
@@ -28,42 +15,41 @@ function ModalForm() {
     setModalState(false);
   };
 
-  // const validateDate = (e) => {
-  // let inputDate = new Date(e.target.value);
-  // let currentDate = new Date();
-  // console.log(inputDate, inputDate, "dates");
-  // console.log(inputDate.getDate(), "input date");
-  // console.log(currentDate.getDate(), "current date");
-  //   if (inputDate.getDate() === currentDate.getDate()) {
-  //     alert("Invalid date of birth. Date of birth cannot be in future");
-  //   }
-  // };
-  // function validatePhone(input_phone) {
-  //   // return input_phone.replace(/\D/g, "").length == 10;
-  //   if (input_phone.length !== 10)
-  //     alert("Invalid phone number. Please enter a 10-digit phone number.");
-  // }
+  const validateDate = (e) => {
+    let inputDate = new Date(e.target.value);
+    let currentDate = new Date();
+    // console.log(inputDate, inputDate, "dates");
+    // console.log(inputDate.getDate(), "input date");
+    // console.log(currentDate.getDate(), "current date");
+    if (inputDate.getDate() === currentDate.getDate()) {
+      alert("Invalid date of birth. Date of birth cannot be in future");
+    }
+  };
+  function validatePhone(input_phone) {
+    // return input_phone.replace(/\D/g, "").length == 10;
+    if (input_phone.length !== 10)
+      alert("Invalid phone number. Please enter a 10-digit phone number.");
+  }
 
-  // const handleSubmit1 = (e) => {
-  //   e.preventDefault();
-  //   // if (
-  //   //   e.target.name === "phone" &&
-  //   //   e.target.value.replace(/\D/g, "").length !== 10
-  //   // ) {
-  //   //   alert("Invalid phone number. Please enter a 10-digit phone number.");
-  //   // }
+  const handleSubmit1 = (e) => {
+    e.preventDefault();
+    // if (
+    //   e.target.name === "phone" &&
+    //   e.target.value.replace(/\D/g, "").length !== 10
+    // ) {
+    //   alert("Invalid phone number. Please enter a 10-digit phone number.");
+    // }
 
-  //   if (validatePhone(phone));
-  //   // if (validateDate(e));
-  //   setPhone([]);
-  //   SetDob("");
-  //   SetEmail("");
-  //   SetUsername("");
-  // };
+    if (validatePhone(phone));
+    // if (validateDate(e));
+    setPhone([]);
+    SetDob("");
+    SetEmail("");
+    SetUsername("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, email, phone, dob } = formData;
     if (!username || !email || !phone || !dob) {
       alert("Please fill in all fields.");
       // return;
@@ -87,12 +73,13 @@ function ModalForm() {
       // return;
     }
 
-    setFormData({
-      username: "",
-      email: "",
-      phone: "",
-      dob: "",
-    });
+    setPhone("");
+    SetDob("");
+    SetEmail("");
+    SetUsername("");
+    e.target.value = "";
+    // closeModal();
+    console.log(phone, dob);
   };
 
   return (
@@ -111,7 +98,7 @@ function ModalForm() {
                 id="username"
                 name="username"
                 required
-                onChange={handleChange}
+                onChange={(e) => SetUsername(e.target.value)}
               ></input>
 
               <label>Email Address:</label>
@@ -120,7 +107,7 @@ function ModalForm() {
                 id="email"
                 name="email"
                 required
-                onChange={handleChange}
+                onChange={(e) => SetEmail(e.target.value)}
               ></input>
 
               <label>Phone Number:</label>
@@ -130,7 +117,10 @@ function ModalForm() {
                 name="phone"
                 // pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                 required
-                onChange={handleChange}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  // console.log(phone.length + 1);
+                }}
               ></input>
 
               <label>Date of Birth:</label>
@@ -139,10 +129,14 @@ function ModalForm() {
                 id="dob"
                 name="dob"
                 required
-                onChange={handleChange}
+                onChange={(e) => {
+                  SetDob(e.target.value);
+                  // console.log(e.target.valueAsDate);
+                  // validateDate(e);
+                }}
               ></input>
 
-              <button className="submit-button">Submit</button>
+              <button className="btn">Submit</button>
             </form>
           )}
         </div>
@@ -152,4 +146,4 @@ function ModalForm() {
   );
 }
 
-export default ModalForm;
+export default ModalForm_bkp;

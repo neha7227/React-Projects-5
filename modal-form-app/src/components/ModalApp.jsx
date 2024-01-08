@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../components/ModalForm.css";
-import ModalForm from "./ModalForm";
+import ModalForm from "./ModalForm_bkp";
 
 function ModalApp() {
   const [modalState, setModalState] = useState(false);

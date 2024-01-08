@@ -1,7 +1,7 @@
 
 import './App.css';
 import ModalApp from './components/ModalApp';
-import ModalForm from './components/ModalForm';
+import ModalForm from './components/ModalForm_bkp';
 
 function App() {
   return (
