@@ -99,10 +99,11 @@ function ModalForm() {
     <>
       <div className="modal">
         <h1>User Details Modal</h1>
-        <button className="btn" onClick={openModal}>
+        <button className="submit-button" onClick={openModal}>
           Open Form
         </button>
-        <div className={`modal-content ${modalState ? "open" : ""}`}>
+        {/* <div className={`modal-content ${modalState ? "open" : ""}`}> */}
+        <div className="modal-content">
           {modalState && (
             <form className="form" onSubmit={handleSubmit}>
               <label>Username:</label>
