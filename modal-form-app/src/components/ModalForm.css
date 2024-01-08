@@ -1,0 +1,61 @@
+.form{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-wrap: wrap;
+
+
+
+}
+
+.btn{
+  /* width: 80px;
+  height: 20px; */
+  background-color: rgba(0, 170, 255, 0.878);
+  border: 0;
+  border-radius: 2px;
+  padding: 10px;
+
+
+}
+
+.modal{
+  position: fixed;
+  /* background-color: rgb(215, 209, 201); */
+
+}
+.modal-content{
+  position: fixed;
+  background-color: white;
+  top: 50%;
+left: 50%;
+max-width: 30rem;
+padding: 20px;
+z-index: 1000;
+transform: translate(-50%, -50%) ;
+
+
+/* border: 1px solid #ccc; */
+border-radius: 5px;
+}
+
+.modal-content.open {
+  display: block;
+}
+
+.app-body{
+  background-color: rgb(215, 209, 201);
+  height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
