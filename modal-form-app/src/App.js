@@ -27,7 +27,10 @@ function App() {
     <div className="App">
       <h1>User Details Modal</h1>
       <button onClick={openModal} className="submit-button">Open Form</button>
-      {isOpen && <User closeModal={closeModal} />}
+      {/* <div onClick={closeModal}> */}
+      {isOpen && <User closeModal={closeModal} isOpen={isOpen} />}
+      {/* </div> */}
+      {/* {isOpen && <div className="overlay" onClick={closeModal}></div>} */}
     </div>
   );
 };

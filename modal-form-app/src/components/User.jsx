@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles.css";
 
-const User = ({ closeModal }) => {
+const User = ({ closeModal, isOpen }) => {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission
     closeModal(true); // Close the modal
@@ -59,6 +59,7 @@ const User = ({ closeModal }) => {
           </div>
         </form>
       </div>
+      {isOpen && <div className="overlay" onClick={closeModal}></div>}
     </div>
   );
 };

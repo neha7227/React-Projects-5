@@ -17,12 +17,15 @@
 }
 
 .modal-content {
+  position: fixed;
   background: white;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width:30rem
+  width:30rem;
+  z-index: 1000;
+  transform: translate(-50%, -50%) ;
 }
 
 label {
@@ -53,4 +56,14 @@ label {
 /* Style the Submit button on hover */
 .submit-button:hover {
   background-color: #0056b3; /* Change the background color on hover */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
